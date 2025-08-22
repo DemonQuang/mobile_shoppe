@@ -1,0 +1,9 @@
+C:\Users\Quoc Cuong\source\repos\XDHTTTQL\Mobile app shoppe\Mobile app shoppe\bin\Debug\Mobile app shoppe.exe.config
+C:\Users\Quoc Cuong\source\repos\XDHTTTQL\Mobile app shoppe\Mobile app shoppe\bin\Debug\Mobile app shoppe.exe
+C:\Users\Quoc Cuong\source\repos\XDHTTTQL\Mobile app shoppe\Mobile app shoppe\bin\Debug\Mobile app shoppe.pdb
+C:\Users\Quoc Cuong\source\repos\XDHTTTQL\Mobile app shoppe\Mobile app shoppe\obj\Debug\Mobile app shoppe.csproj.AssemblyReference.cache
+C:\Users\Quoc Cuong\source\repos\XDHTTTQL\Mobile app shoppe\Mobile app shoppe\obj\Debug\Mobile_app_shoppe.Properties.Resources.resources
+C:\Users\Quoc Cuong\source\repos\XDHTTTQL\Mobile app shoppe\Mobile app shoppe\obj\Debug\Mobile app shoppe.csproj.GenerateResource.cache
+C:\Users\Quoc Cuong\source\repos\XDHTTTQL\Mobile app shoppe\Mobile app shoppe\obj\Debug\Mobile app shoppe.csproj.CoreCompileInputs.cache
+C:\Users\Quoc Cuong\source\repos\XDHTTTQL\Mobile app shoppe\Mobile app shoppe\obj\Debug\Mobile app shoppe.exe
+C:\Users\Quoc Cuong\source\repos\XDHTTTQL\Mobile app shoppe\Mobile app shoppe\obj\Debug\Mobile app shoppe.pdb

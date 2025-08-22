@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mobile_app_shoppe
+namespace Mobile_app_shoppe.Forms.Admin.Add
 {
-    public partial class MainForm : Form
+    public partial class Mobile : Form
     {
-        public MainForm()
+        public Mobile()
         {
             InitializeComponent();
         }
