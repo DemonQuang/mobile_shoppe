@@ -1,6 +1,6 @@
-﻿namespace Mobile_app_shoppe.Forms.Admin.Add
+﻿namespace Mobile_app_shoppe.Forms.Admin
 {
-    partial class Model
+    partial class Admin_HomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Model";
+            this.Text = "Admin_HomePage";
         }
 
         #endregion
