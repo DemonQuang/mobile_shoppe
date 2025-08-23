@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mobile_app_shoppe.Forms.User
+namespace Mobile_app_shoppe.Forms
 {
-    public partial class searchCustomerbyIMEI : Form
+    public partial class Forget : Form
     {
-        public searchCustomerbyIMEI()
+        public Forget()
         {
             InitializeComponent();
         }

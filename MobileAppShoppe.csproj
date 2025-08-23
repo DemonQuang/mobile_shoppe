@@ -48,29 +48,62 @@
   <ItemGroup>
     <Compile Include="Business\UserService.cs" />
     <Compile Include="DataAccess\DbHelper.cs" />
-    <Compile Include="Forms\Admin_HomePage .cs">
+    <Compile Include="Forms\Admin_Homepage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin_HomePage .Designer.cs">
-      <DependentUpon>Admin_HomePage .cs</DependentUpon>
+    <Compile Include="Forms\Admin_Homepage.Designer.cs">
+      <DependentUpon>Admin_Homepage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoginForm.cs">
+    <Compile Include="Forms\Forget.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="Forms\Forget.Designer.cs">
+      <DependentUpon>Forget.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\LoginAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Forms\LoginAdmin.Designer.cs">
+      <DependentUpon>LoginAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\Conform_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\Conform_Details.Designer.cs">
+      <DependentUpon>Conform_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\User_Homepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\User_Homepage.Designer.cs">
+      <DependentUpon>User_Homepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Admin_HomePage .resx">
-      <DependentUpon>Admin_HomePage .cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Admin_Homepage.resx">
+      <DependentUpon>Admin_Homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forget.resx">
+      <DependentUpon>Forget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginAdmin.resx">
+      <DependentUpon>LoginAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\Conform_Details.resx">
+      <DependentUpon>Conform_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\User_Homepage.resx">
+      <DependentUpon>User_Homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mobile_app_shoppe.Forms
+namespace Mobile_app_shoppe
 {
-    public partial class LoginForm : Form
+    public partial class Login : Form
     {
-        public LoginForm()
+        public Login()
         {
             InitializeComponent();
         }

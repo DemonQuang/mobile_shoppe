@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Mobile_app_shoppe.Forms.User
 {
-    public partial class Sales : Form
+    public partial class Conform_Details : Form
     {
-        public Sales()
+        public Conform_Details()
         {
             InitializeComponent();
         }

@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mobile_app_shoppe
+namespace Mobile_app_shoppe.Forms
 {
-    public partial class MainForm : Form
+    public partial class User_Homepage : Form
     {
-        public MainForm()
+        public User_Homepage()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
