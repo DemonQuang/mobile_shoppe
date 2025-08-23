@@ -1,4 +1,4 @@
-﻿namespace Mobile_app_shoppe.Forms.Admin
+﻿namespace Mobile_app_shoppe.Forms
 {
     partial class Admin_HomePage
     {

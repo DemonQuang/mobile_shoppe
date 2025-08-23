@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mobile_app_shoppe.Forms.Admin
+namespace Mobile_app_shoppe.Forms
 {
     public partial class Admin_HomePage : Form
     {
