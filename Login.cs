@@ -1,14 +1,9 @@
 ﻿using Mobile_app_shoppe.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Mobile_app_shoppe.DataAccess;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Mobile_app_shoppe
@@ -19,11 +14,8 @@ namespace Mobile_app_shoppe
         {
             InitializeComponent();
         }
-
-
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 

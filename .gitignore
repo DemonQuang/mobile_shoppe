@@ -1,8 +1,16 @@
-# Ignore Visual Studio files
-.vs/
-bin/
-obj/
-*.user
+# Build results
+[Bb]in/
+[Oo]bj/
+*.exe
+*.dll
+*.pdb
+*.exe.config
+
+# User-specific files
 *.suo
-*.cache
-*.log
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache
+.vs/

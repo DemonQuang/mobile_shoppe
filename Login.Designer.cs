@@ -35,6 +35,7 @@
             this.btnForgot = new System.Windows.Forms.LinkLabel();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+
             this.SuspendLayout();
             // 
             // label1
@@ -90,6 +91,7 @@
             this.btnForgot.TabStop = true;
             this.btnForgot.Text = "Forgot Password";
             this.btnForgot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnForgot_LinkClicked);
+
             // 
             // txtUsername
             // 
@@ -133,6 +135,7 @@
         private System.Windows.Forms.LinkLabel btnForgot;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
+
     }
 }
 

@@ -30,8 +30,8 @@
         {
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.lnkLogin = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,26 +51,26 @@
             this.textBox1.Size = new System.Drawing.Size(130, 22);
             this.textBox1.TabIndex = 12;
             // 
-            // button1
+            // btnSubmit
             // 
-            this.button1.Location = new System.Drawing.Point(130, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSubmit.Location = new System.Drawing.Point(130, 190);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.TabIndex = 10;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // lnkLogin
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(237, 292);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(111, 22);
-            this.linkLabel1.TabIndex = 9;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Login Page";
+            this.lnkLogin.AutoSize = true;
+            this.lnkLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lnkLogin.LinkColor = System.Drawing.Color.Black;
+            this.lnkLogin.Location = new System.Drawing.Point(237, 292);
+            this.lnkLogin.Name = "lnkLogin";
+            this.lnkLogin.Size = new System.Drawing.Size(111, 22);
+            this.lnkLogin.TabIndex = 9;
+            this.lnkLogin.TabStop = true;
+            this.lnkLogin.Text = "Login Page";
             // 
             // label2
             // 
@@ -107,8 +107,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.lnkLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Forget";
@@ -122,8 +122,8 @@
 
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.LinkLabel lnkLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;

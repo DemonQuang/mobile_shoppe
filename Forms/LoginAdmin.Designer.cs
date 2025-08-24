@@ -30,9 +30,9 @@
         {
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lnkForget = new System.Windows.Forms.LinkLabel();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.lnkBack = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -51,38 +51,38 @@
             this.textBox1.Size = new System.Drawing.Size(130, 22);
             this.textBox1.TabIndex = 12;
             // 
-            // linkLabel2
+            // lnkForget
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkLabel2.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel2.Location = new System.Drawing.Point(27, 206);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(161, 22);
-            this.linkLabel2.TabIndex = 11;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Forgot Password";
+            this.lnkForget.AutoSize = true;
+            this.lnkForget.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lnkForget.LinkColor = System.Drawing.Color.Black;
+            this.lnkForget.Location = new System.Drawing.Point(27, 206);
+            this.lnkForget.Name = "lnkForget";
+            this.lnkForget.Size = new System.Drawing.Size(161, 22);
+            this.lnkForget.TabIndex = 11;
+            this.lnkForget.TabStop = true;
+            this.lnkForget.Text = "Forgot Password";
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Location = new System.Drawing.Point(194, 205);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLogin.Location = new System.Drawing.Point(208, 208);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 10;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // lnkBack
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(27, 35);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(54, 22);
-            this.linkLabel1.TabIndex = 9;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Back";
+            this.lnkBack.AutoSize = true;
+            this.lnkBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lnkBack.LinkColor = System.Drawing.Color.Black;
+            this.lnkBack.Location = new System.Drawing.Point(27, 35);
+            this.lnkBack.Name = "lnkBack";
+            this.lnkBack.Size = new System.Drawing.Size(54, 22);
+            this.lnkBack.TabIndex = 9;
+            this.lnkBack.TabStop = true;
+            this.lnkBack.Text = "Back";
             // 
             // label2
             // 
@@ -109,9 +109,9 @@
             this.ClientSize = new System.Drawing.Size(373, 332);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.lnkForget);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.lnkBack);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "LoginAdmin";
@@ -125,9 +125,9 @@
 
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lnkForget;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.LinkLabel lnkBack;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }
