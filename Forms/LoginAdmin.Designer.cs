@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.lnkForget = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lnkBack = new System.Windows.Forms.LinkLabel();
@@ -37,19 +37,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(153, 140);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 22);
-            this.textBox2.TabIndex = 13;
+            this.txtPassword.Location = new System.Drawing.Point(153, 140);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(130, 22);
+            this.txtPassword.TabIndex = 13;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
-            // textBox1
+            // txtUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 93);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 22);
-            this.textBox1.TabIndex = 12;
+            this.txtUsername.Location = new System.Drawing.Point(153, 93);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(130, 22);
+            this.txtUsername.TabIndex = 12;
             // 
             // lnkForget
             // 
@@ -62,6 +63,7 @@
             this.lnkForget.TabIndex = 11;
             this.lnkForget.TabStop = true;
             this.lnkForget.Text = "Forgot Password";
+            this.lnkForget.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkForget_LinkClicked);
             // 
             // btnLogin
             // 
@@ -71,6 +73,7 @@
             this.btnLogin.TabIndex = 10;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lnkBack
             // 
@@ -83,6 +86,7 @@
             this.lnkBack.TabIndex = 9;
             this.lnkBack.TabStop = true;
             this.lnkBack.Text = "Back";
+            this.lnkBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkBack_LinkClicked);
             // 
             // label2
             // 
@@ -107,8 +111,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 332);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lnkForget);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lnkBack);
@@ -123,8 +127,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.LinkLabel lnkForget;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel lnkBack;

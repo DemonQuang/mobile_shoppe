@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtHint = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lnkLogin = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox2
+            // txtHint
             // 
-            this.textBox2.Location = new System.Drawing.Point(140, 122);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 22);
-            this.textBox2.TabIndex = 13;
+            this.txtHint.Location = new System.Drawing.Point(140, 122);
+            this.txtHint.Name = "txtHint";
+            this.txtHint.Size = new System.Drawing.Size(130, 22);
+            this.txtHint.TabIndex = 13;
             // 
-            // textBox1
+            // txtUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(140, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 22);
-            this.textBox1.TabIndex = 12;
+            this.txtUsername.Location = new System.Drawing.Point(140, 75);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(130, 22);
+            this.txtUsername.TabIndex = 12;
             // 
             // btnSubmit
             // 
@@ -59,6 +59,7 @@
             this.btnSubmit.TabIndex = 10;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click_1);
             // 
             // lnkLogin
             // 
@@ -71,6 +72,7 @@
             this.lnkLogin.TabIndex = 9;
             this.lnkLogin.TabStop = true;
             this.lnkLogin.Text = "Login Page";
+            this.lnkLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLogin_LinkClicked);
             // 
             // label2
             // 
@@ -90,23 +92,23 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Username:";
             // 
-            // label3
+            // lblPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(63, 234);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 16);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "You password is:";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(63, 234);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(109, 16);
+            this.lblPassword.TabIndex = 14;
+            this.lblPassword.Text = "You password is:";
             // 
             // Forget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(393, 382);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.txtHint);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lnkLogin);
             this.Controls.Add(this.label2);
@@ -120,12 +122,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtHint;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.LinkLabel lnkLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPassword;
     }
 }
