@@ -49,23 +49,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtIMEs = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtIMEs = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -261,7 +261,6 @@
             this.label1.Size = new System.Drawing.Size(107, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Customer Name:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tabPage2
             // 
@@ -280,6 +279,41 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ViewStock";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(287, 273);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "CANCEL";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label13.Location = new System.Drawing.Point(338, 28);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(164, 32);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "View Stock";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(269, 192);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(195, 22);
+            this.textBox1.TabIndex = 23;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(84, 192);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 16);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Price/Piece";
             // 
             // comboBox1
             // 
@@ -315,41 +349,6 @@
             this.label11.TabIndex = 18;
             this.label11.Text = "Company Name: ";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(269, 192);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 22);
-            this.textBox1.TabIndex = 23;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(84, 192);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 16);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Price/Piece";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label13.Location = new System.Drawing.Point(338, 28);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(164, 32);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "View Stock";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(287, 273);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "CANCEL";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dataGridView1);
@@ -363,31 +362,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "SearchCustomerbyIMEI";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(41, 50);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(124, 16);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Enter IMEI Number: ";
-            // 
-            // txtIMEs
-            // 
-            this.txtIMEs.Location = new System.Drawing.Point(181, 50);
-            this.txtIMEs.Name = "txtIMEs";
-            this.txtIMEs.Size = new System.Drawing.Size(216, 22);
-            this.txtIMEs.TabIndex = 1;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(278, 93);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -431,6 +405,31 @@
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.Width = 125;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(278, 93);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtIMEs
+            // 
+            this.txtIMEs.Location = new System.Drawing.Point(181, 50);
+            this.txtIMEs.Name = "txtIMEs";
+            this.txtIMEs.Size = new System.Drawing.Size(216, 22);
+            this.txtIMEs.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(41, 50);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(124, 16);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Enter IMEI Number: ";
             // 
             // User_Homepage
             // 

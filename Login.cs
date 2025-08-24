@@ -32,7 +32,7 @@ namespace Mobile_app_shoppe
                 if (count > 0)
                 {
                     MessageBox.Show("Đăng nhập thành công!");
-                    Admin_Homepage home = new Admin_Homepage();
+                    User_Homepage home = new User_Homepage();
                     home.Show();
                     this.Hide();
                 }
