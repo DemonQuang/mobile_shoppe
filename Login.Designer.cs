@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnAdmin = new System.Windows.Forms.LinkLabel();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnForgot = new System.Windows.Forms.LinkLabel();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -55,63 +55,66 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Password:";
             // 
-            // linkLabel1
+            // btnAdmin
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(327, 28);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(65, 22);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Admin";
+            this.btnAdmin.AutoSize = true;
+            this.btnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnAdmin.LinkColor = System.Drawing.Color.Black;
+            this.btnAdmin.Location = new System.Drawing.Point(327, 28);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(65, 22);
+            this.btnAdmin.TabIndex = 2;
+            this.btnAdmin.TabStop = true;
+            this.btnAdmin.Text = "Admin";
+            this.btnAdmin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnAdmin_LinkClicked);
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Location = new System.Drawing.Point(164, 172);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLogin.Location = new System.Drawing.Point(164, 172);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 3;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
-            // linkLabel2
+            // btnForgot
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.linkLabel2.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel2.Location = new System.Drawing.Point(121, 233);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(161, 22);
-            this.linkLabel2.TabIndex = 4;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Forgot Password";
+            this.btnForgot.AutoSize = true;
+            this.btnForgot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnForgot.LinkColor = System.Drawing.Color.Black;
+            this.btnForgot.Location = new System.Drawing.Point(121, 233);
+            this.btnForgot.Name = "btnForgot";
+            this.btnForgot.Size = new System.Drawing.Size(161, 22);
+            this.btnForgot.TabIndex = 4;
+            this.btnForgot.TabStop = true;
+            this.btnForgot.Text = "Forgot Password";
+            this.btnForgot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnForgot_LinkClicked);
             // 
-            // textBox1
+            // txtUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(152, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 22);
-            this.textBox1.TabIndex = 5;
+            this.txtUsername.Location = new System.Drawing.Point(152, 65);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(130, 22);
+            this.txtUsername.TabIndex = 5;
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(152, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 22);
-            this.textBox2.TabIndex = 6;
+            this.txtPassword.Location = new System.Drawing.Point(152, 112);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(130, 22);
+            this.txtPassword.TabIndex = 6;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 368);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.btnForgot);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Login";
@@ -125,11 +128,11 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.LinkLabel btnAdmin;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.LinkLabel btnForgot;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }
 

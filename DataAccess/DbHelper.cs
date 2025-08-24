@@ -1,12 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Mobile_app_shoppe.DataAccess
 {
-    internal class DbHelper
+    public static class DbHelper
     {
+        private static string connectionString =
+            ConfigurationManager.ConnectionStrings["MobileStoreDB"].ConnectionString;
+
+        public static SqlConnection GetConnection()
+        {
+            return new SqlConnection(connectionString);
+        }
+
+        public static bool TestConnection()
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
