@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using Mobile_app_shoppe.DataAccess;
+using MobileAppShoppe.DataAccess;
 
 
-namespace Mobile_app_shoppe.Forms
+namespace MobileAppShoppe.Forms
 {
     public partial class Forget : Form
     {

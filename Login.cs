@@ -1,12 +1,12 @@
-﻿using Mobile_app_shoppe.Forms;
+﻿using MobileAppShoppe.Forms;
 using System;
-using Mobile_app_shoppe.DataAccess;
+using MobileAppShoppe.DataAccess;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Mobile_app_shoppe
+namespace MobileAppShoppe
 {
     public partial class Login : Form
     {

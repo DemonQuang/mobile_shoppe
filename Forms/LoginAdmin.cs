@@ -3,10 +3,10 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
-using Mobile_app_shoppe.DataAccess;
+using MobileAppShoppe.DataAccess;
 
 
-namespace Mobile_app_shoppe.Forms
+namespace MobileAppShoppe.Forms
 {
     public partial class LoginAdmin : Form
     {

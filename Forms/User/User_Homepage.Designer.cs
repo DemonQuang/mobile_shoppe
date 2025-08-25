@@ -1,4 +1,4 @@
-﻿namespace Mobile_app_shoppe.Forms
+﻿namespace MobileAppShoppe.Forms
 {
     partial class User_Homepage
     {
@@ -36,7 +36,7 @@
             this.cboCompany = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtMobileNo = new System.Windows.Forms.TextBox();
+            this.txtMobile = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -51,26 +51,23 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbModelView = new System.Windows.Forms.ComboBox();
+            this.cmbCompanyView = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtIMEs = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -92,7 +89,7 @@
             this.tabPage1.Controls.Add(this.cboCompany);
             this.tabPage1.Controls.Add(this.txtPrice);
             this.tabPage1.Controls.Add(this.txtAddress);
-            this.tabPage1.Controls.Add(this.txtMobileNo);
+            this.tabPage1.Controls.Add(this.txtMobile);
             this.tabPage1.Controls.Add(this.txtEmail);
             this.tabPage1.Controls.Add(this.txtCustomerName);
             this.tabPage1.Controls.Add(this.label9);
@@ -120,6 +117,7 @@
             this.button1.TabIndex = 19;
             this.button1.Text = "SUBMIT";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cboIMEI
             // 
@@ -128,6 +126,7 @@
             this.cboIMEI.Name = "cboIMEI";
             this.cboIMEI.Size = new System.Drawing.Size(195, 24);
             this.cboIMEI.TabIndex = 18;
+            this.cboIMEI.SelectedIndexChanged += new System.EventHandler(this.cboIMEI_SelectedIndexChanged_1);
             // 
             // cboModel
             // 
@@ -136,14 +135,17 @@
             this.cboModel.Name = "cboModel";
             this.cboModel.Size = new System.Drawing.Size(195, 24);
             this.cboModel.TabIndex = 17;
+            this.cboModel.SelectedIndexChanged += new System.EventHandler(this.cboModel_SelectedIndexChanged_1);
             // 
             // cboCompany
             // 
+            this.cboCompany.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCompany.FormattingEnabled = true;
             this.cboCompany.Location = new System.Drawing.Point(348, 254);
             this.cboCompany.Name = "cboCompany";
             this.cboCompany.Size = new System.Drawing.Size(195, 24);
             this.cboCompany.TabIndex = 16;
+            this.cboCompany.SelectedIndexChanged += new System.EventHandler(this.cboCompany_SelectedIndexChanged_1);
             // 
             // txtPrice
             // 
@@ -159,12 +161,12 @@
             this.txtAddress.Size = new System.Drawing.Size(195, 22);
             this.txtAddress.TabIndex = 11;
             // 
-            // txtMobileNo
+            // txtMobile
             // 
-            this.txtMobileNo.Location = new System.Drawing.Point(348, 121);
-            this.txtMobileNo.Name = "txtMobileNo";
-            this.txtMobileNo.Size = new System.Drawing.Size(195, 22);
-            this.txtMobileNo.TabIndex = 10;
+            this.txtMobile.Location = new System.Drawing.Point(348, 121);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(195, 22);
+            this.txtMobile.TabIndex = 10;
             // 
             // txtEmail
             // 
@@ -266,10 +268,10 @@
             // 
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.txtStock);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.comboBox2);
+            this.tabPage2.Controls.Add(this.cmbModelView);
+            this.tabPage2.Controls.Add(this.cmbCompanyView);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -288,6 +290,7 @@
             this.button2.TabIndex = 25;
             this.button2.Text = "CANCEL";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // label13
             // 
@@ -299,59 +302,62 @@
             this.label13.TabIndex = 24;
             this.label13.Text = "View Stock";
             // 
-            // textBox1
+            // txtStock
             // 
-            this.textBox1.Location = new System.Drawing.Point(269, 192);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 22);
-            this.textBox1.TabIndex = 23;
+            this.txtStock.Location = new System.Drawing.Point(269, 192);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.ReadOnly = true;
+            this.txtStock.Size = new System.Drawing.Size(195, 22);
+            this.txtStock.TabIndex = 23;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(84, 192);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 16);
+            this.label12.Size = new System.Drawing.Size(104, 16);
             this.label12.TabIndex = 22;
-            this.label12.Text = "Price/Piece";
+            this.label12.Text = "Stock Available:";
             // 
-            // comboBox1
+            // cmbModelView
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(269, 150);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 24);
-            this.comboBox1.TabIndex = 21;
+            this.cmbModelView.FormattingEnabled = true;
+            this.cmbModelView.Location = new System.Drawing.Point(269, 150);
+            this.cmbModelView.Name = "cmbModelView";
+            this.cmbModelView.Size = new System.Drawing.Size(195, 24);
+            this.cmbModelView.TabIndex = 21;
+            this.cmbModelView.SelectedIndexChanged += new System.EventHandler(this.cmbModelView_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cmbCompanyView
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(269, 112);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(195, 24);
-            this.comboBox2.TabIndex = 20;
+            this.cmbCompanyView.FormattingEnabled = true;
+            this.cmbCompanyView.Location = new System.Drawing.Point(269, 112);
+            this.cmbCompanyView.Name = "cmbCompanyView";
+            this.cmbCompanyView.Size = new System.Drawing.Size(195, 24);
+            this.cmbCompanyView.TabIndex = 20;
+            this.cmbCompanyView.SelectedIndexChanged += new System.EventHandler(this.cmbCompanyView_SelectedIndexChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(84, 153);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 16);
+            this.label10.Size = new System.Drawing.Size(140, 16);
             this.label10.TabIndex = 19;
-            this.label10.Text = "Model Number:";
+            this.label10.Text = "Select Model Number:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(84, 115);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 16);
+            this.label11.Size = new System.Drawing.Size(147, 16);
             this.label11.TabIndex = 18;
-            this.label11.Text = "Company Name: ";
+            this.label11.Text = "Seled Company Name:";
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.dgvSearch);
             this.tabPage3.Controls.Add(this.btnSearch);
             this.tabPage3.Controls.Add(this.txtIMEs);
             this.tabPage3.Controls.Add(this.label14);
@@ -363,48 +369,15 @@
             this.tabPage3.Text = "SearchCustomerbyIMEI";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvSearch
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(89, 177);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(553, 150);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "CustomerName";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "MobileNumber";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Email";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Address";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
+            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearch.Location = new System.Drawing.Point(89, 177);
+            this.dgvSearch.Name = "dgvSearch";
+            this.dgvSearch.RowHeadersWidth = 51;
+            this.dgvSearch.RowTemplate.Height = 24;
+            this.dgvSearch.Size = new System.Drawing.Size(553, 150);
+            this.dgvSearch.TabIndex = 3;
             // 
             // btnSearch
             // 
@@ -414,6 +387,7 @@
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // txtIMEs
             // 
@@ -431,14 +405,26 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Enter IMEI Number: ";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(815, 13);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Logout";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // User_Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 527);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.tabControl1);
             this.Name = "User_Homepage";
             this.Text = "User_HomePage";
+            this.Load += new System.EventHandler(this.User_HomePage_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -446,7 +432,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,7 +444,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtMobileNo;
+        private System.Windows.Forms.TextBox txtMobile;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.Label label9;
@@ -476,20 +462,17 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbModelView;
+        private System.Windows.Forms.ComboBox cmbCompanyView;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtIMEs;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button button3;
     }
 }

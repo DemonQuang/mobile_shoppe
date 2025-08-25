@@ -8,10 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Mobile_app_shoppe.DataAccess;
+using MobileAppShoppe.DataAccess;
 
 
-namespace Mobile_app_shoppe.Forms
+namespace MobileAppShoppe.Forms
 {
     public partial class Admin_Homepage : Form
     {
@@ -248,8 +248,21 @@ namespace Mobile_app_shoppe.Forms
                 cmd.Parameters.AddWithValue("@name", txtCompanyName.Text.Trim());
                 cmd.ExecuteNonQuery();
             }
-            LoadCompanyData();
+            //LoadCompanyData();
             MessageBox.Show("Thêm công ty thành công!");
+            // 👉 Load lại toàn bộ dữ liệu trong tab Search
+            //LoadModelData();
+            // Load lại DataGridView
+            LoadCompanyData();
+
+            // Load lại combobox Company ở Model
+            LoadCompanyToCombo();
+
+            // Load lại combobox Company ở Mobile
+            LoadCompanyForMobile();
+
+            // Load lại combobox Company ở Stock
+            LoadCompanyForStock();
         }
 
         private void btnUpdateC_Click(object sender, EventArgs e)
@@ -339,6 +352,7 @@ namespace Mobile_app_shoppe.Forms
 
             MessageBox.Show("Thêm Mobile thành công!");
             ClearMobileForm();
+            LoadMobileData();
         }
 
         private void btnClearMobile_Click(object sender, EventArgs e)
@@ -580,6 +594,18 @@ namespace Mobile_app_shoppe.Forms
 
                 lblTotalByRange.Text = $"Total Sales from {from:dd/MM/yyyy} to {to:dd/MM/yyyy} = {total:N0}";
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+
+            // Khi Login đóng, form này cũng đóng
+            login.FormClosed += (s, args) => this.Close();
+
+            // Ẩn form hiện tại
+            this.Hide();
         }
     }
 }

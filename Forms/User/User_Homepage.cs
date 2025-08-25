@@ -1,381 +1,306 @@
-﻿using Mobile_app_shoppe.Forms.User;
+﻿using MobileAppShoppe.DataAccess;
+using MobileAppShoppe.Forms.User;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using MobileAppShoppe.DataAccess;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace Mobile_app_shoppe.Forms
+
+namespace MobileAppShoppe.Forms
 {
     public partial class User_Homepage : Form
     {
-        private readonly string connectionString =
-            @"Data Source=MSI\SQLEXPRESS;Initial Catalog=MobileStoreDB;Integrated Security=True";
-          
-
-        private string currentWarranty = ""; // chỉ dùng cho tab Sale
 
         public User_Homepage()
         {
             InitializeComponent();
-            InitializeTabs();
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
-        }
-
-        private void InitializeTabs()
-        {
-            // Tab Sale
-            LoadCompanyNames();
-            cboCompany.SelectedIndexChanged += cboCompany_SelectedIndexChanged;
-            cboModel.SelectedIndexChanged += cboModel_SelectedIndexChanged;
-            cboIMEI.SelectedIndexChanged += cboIMEI_SelectedIndexChanged;
-            button1.Click += btnSubmitSale_Click;
-
-            // Tab ViewStock
             LoadStock();
+            LoadCompany();
 
-            // Tab Search
-            btnSearch.Click += btnSearch_Click;
+
         }
 
-        #region Tab Sale
-
-        private void LoadCompanyNames()
-        {
-            cboCompany.Items.Clear();
-            try
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT CName FROM tbl_Company", con);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        cboCompany.Items.Add(dr["CName"].ToString());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading companies: " + ex.Message);
-            }
-        }
-
-        private void cboCompany_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cboModel.Items.Clear();
-            try
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(
-                        @"SELECT ModelNum FROM tbl_Model m
-                          JOIN tbl_Company c ON m.CompId = c.CompId
-                          WHERE c.CName=@CName", con);
-                    cmd.Parameters.AddWithValue("@CName", cboCompany.Text);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        cboModel.Items.Add(dr["ModelNum"].ToString());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading models: " + ex.Message);
-            }
-        }
-
-        private void cboModel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cboIMEI.Items.Clear();
-            try
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(
-                        @"SELECT IMEINO FROM tbl_Mobile m
-                          JOIN tbl_Model md ON m.ModelId = md.ModelId
-                          WHERE md.ModelNum=@ModelNum AND m.Status='Available'", con);
-                    cmd.Parameters.AddWithValue("@ModelNum", cboModel.Text);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        cboIMEI.Items.Add(dr["IMEINO"].ToString());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading IMEIs: " + ex.Message);
-            }
-        }
-
-        private void cboIMEI_SelectedIndexChanged(object sender, EventArgs e)
+        private void User_HomePage_Load(object sender, EventArgs e)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                string query = "SELECT CompId, CName FROM tbl_Company";
+                DataTable dt = DbHelper.ExecuteQuery(query);
+
+                if (dt.Rows.Count == 0)
                 {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(
-                        "SELECT Price, Warranty FROM tbl_Mobile WHERE IMEINO=@IMEI", con);
-                    cmd.Parameters.AddWithValue("@IMEI", cboIMEI.Text);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    if (dr.Read())
-                    {
-                        txtPrice.Text = dr["Price"].ToString();
-                        currentWarranty = dr["Warranty"].ToString();
-                    }
+                    MessageBox.Show("Không có dữ liệu Company trong DB!");
+                    return;
                 }
+
+                cboCompany.DataSource = dt;
+                cboCompany.DisplayMember = "CName";
+                cboCompany.ValueMember = "CompId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading price/warranty: " + ex.Message);
+                MessageBox.Show("Lỗi load Company: " + ex.Message);
             }
         }
 
-        private void btnSubmitSale_Click(object sender, EventArgs e)
+        private void LoadCompany()
         {
-            Conform_Details confirm = new Conform_Details(
+            string query = "SELECT CompId, CName FROM tbl_Company";
+            DataTable dt = DbHelper.ExecuteQuery(query);
+            cboCompany.DataSource = dt;
+            cboCompany.DisplayMember = "CName";
+            cboCompany.ValueMember = "CompId";
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCustomerName.Text) ||
+                string.IsNullOrWhiteSpace(txtMobile.Text) ||
+                cboCompany.SelectedValue == null ||
+                cboModel.SelectedValue == null ||
+                cboIMEI.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+
+            string warranty = "";
+            string query = "SELECT Warranty FROM tbl_Mobile WHERE IMEINO=@IMEI";
+            SqlParameter[] prms = { new SqlParameter("@IMEI", cboIMEI.Text) };
+
+            DataTable dt = DbHelper.ExecuteQuery(query, prms);
+            if (dt.Rows.Count > 0)
+            {
+                warranty = dt.Rows[0]["Warranty"].ToString();
+            }
+
+            Conform_Details frm = new Conform_Details(
                 txtCustomerName.Text,
-                txtMobileNo.Text,
+                txtMobile.Text,
                 txtAddress.Text,
                 txtEmail.Text,
                 cboCompany.Text,
                 cboModel.Text,
                 cboIMEI.Text,
                 txtPrice.Text,
-                currentWarranty
+                cboModel.SelectedValue.ToString(), // ModelId
+                warranty
             );
-            confirm.Owner = this;
-            var result = confirm.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                MessageBox.Show("✅ Thông tin đã lưu thành công!");
-            }
-            else
-            {
-                this.Show();
-            }
+            frm.ShowDialog();
         }
 
-        #endregion
+        private void cboIMEI_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cboModel.SelectedValue == null) return;
+
+            // tránh lỗi DataRowView
+            if (cboModel.SelectedValue is DataRowView) return;
+
+            string modelId = cboModel.SelectedValue.ToString();
+            string query = "SELECT IMEINO, Price FROM tbl_Mobile WHERE ModelId=@ModelId AND (Status IS NULL OR Status <> 'sold')";
+            SqlParameter[] p = { new SqlParameter("@ModelId", modelId) };
+            DataTable dt = DbHelper.ExecuteQuery(query, p);
+
+            cboIMEI.DataSource = dt;
+            cboIMEI.DisplayMember = "IMEINO";
+            cboIMEI.ValueMember = "IMEINO";
+
+            if (dt.Rows.Count > 0)
+                txtPrice.Text = dt.Rows[0]["Price"].ToString();
+            else
+                txtPrice.Clear();
+
+            //MessageBox.Show("Số IMEI load được: " + dt.Rows.Count); // debug
+        }
+
+        private void cboModel_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cboModel.SelectedValue == null || cboModel.SelectedValue is DataRowView) return;
+
+            string modelId = cboModel.SelectedValue.ToString();
+            string query = "SELECT IMEINO, Price FROM tbl_Mobile WHERE ModelId=@ModelId AND (Status IS NULL OR Status <> 'sold')";
+            SqlParameter[] p = { new SqlParameter("@ModelId", modelId) };
+            DataTable dt = DbHelper.ExecuteQuery(query, p);
+
+            cboIMEI.DataSource = dt;
+            cboIMEI.DisplayMember = "IMEINO";
+            cboIMEI.ValueMember = "IMEINO";
+
+            if (dt.Rows.Count > 0)
+                txtPrice.Text = dt.Rows[0]["Price"].ToString();
+            else
+                txtPrice.Clear();
+        }
+
+        private void cboCompany_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cboCompany.SelectedValue == null) return;
+
+            string compId = cboCompany.SelectedValue.ToString();
+            string query = "SELECT ModelId, ModelNum FROM tbl_Model WHERE CompId=@CompId";
+            SqlParameter[] p = { new SqlParameter("@CompId", compId) };
+            DataTable dt = DbHelper.ExecuteQuery(query, p);
+            cboModel.DataSource = dt;
+            cboModel.DisplayMember = "ModelNum";
+            cboModel.ValueMember = "ModelId";
+        }
 
         #region Tab ViewStock
 
-
         private void LoadStock()
         {
-            try
-            {
-                // Clear các combobox trước
-                comboBox1.Items.Clear(); // Model
-                comboBox2.Items.Clear(); // Company
-                textBox1.Text = "";      // Price
-
-                // Load danh sách công ty vào comboBox2
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT CName FROM tbl_Company", con);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        comboBox2.Items.Add(dr["CName"].ToString());
-                    }
-                }
-
-                // Load tất cả stock vào DataGridView
-                LoadAllStock();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading stock: " + ex.Message);
-            }
-        }
-
-        private void LoadAllStock()
-        {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    con.Open();
-                    SqlDataAdapter da = new SqlDataAdapter(
-                        @"SELECT m.IMEINO, md.ModelNum, c.CName, m.Status, m.Price
-                  FROM tbl_Mobile m
-                  JOIN tbl_Model md ON m.ModelId = md.ModelId
-                  JOIN tbl_Company c ON md.CompId = c.CompId", con);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading stock: " + ex.Message);
-            }
-        }
-
-        // Khi chọn 1 công ty, load các model tương ứng vào comboBox1
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox1.Items.Clear();
-            textBox1.Text = "";
-            if (string.IsNullOrEmpty(comboBox2.Text)) return;
-
-            try
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(
-                        @"SELECT ModelNum FROM tbl_Model m
-                  JOIN tbl_Company c ON m.CompId = c.CompId
-                  WHERE c.CName=@CName", con);
-                    cmd.Parameters.AddWithValue("@CName", comboBox2.Text);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        comboBox1.Items.Add(dr["ModelNum"].ToString());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading models: " + ex.Message);
-            }
-
-            // Optional: Load DataGridView theo Company
-            FilterStock();
-        }
-
-        // Khi chọn 1 model, hiển thị giá tương ứng
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-            if (string.IsNullOrEmpty(comboBox1.Text) || string.IsNullOrEmpty(comboBox2.Text))
-                return;
-
             //try
             //{
+            //    cmbModelView.Items.Clear(); // Model
+            //    cmbCompanyView.Items.Clear(); // Company
+            //    txtStock.Clear();        // Stock
+
             //    using (SqlConnection con = new SqlConnection(connectionString))
             //    {
             //        con.Open();
-            //        SqlCommand cmd = new SqlCommand(
-            //            @"SELECT TOP 1 Price, IMEINO 
-            //      FROM tbl_Mobile m
-            //      JOIN tbl_Model md ON m.ModelId = md.ModelId
-            //      JOIN tbl_Company c ON md.CompId = c.CompId
-            //      WHERE c.CName=@CName AND md.ModelNum=@ModelNum AND m.Status='Available'", con);
-
-            //        cmd.Parameters.AddWithValue("@CName", comboBox2.Text);
-            //        cmd.Parameters.AddWithValue("@ModelNum", comboBox1.Text);
-
+            //        SqlCommand cmd = new SqlCommand("SELECT CName FROM tbl_Company", con);
             //        SqlDataReader dr = cmd.ExecuteReader();
-            //        if (dr.Read())
+            //        while (dr.Read())
             //        {
-            //            textBox1.Text = dr["Price"].ToString();
-            //            // Nếu muốn hiển thị IMEI đầu tiên của model, có thể lưu ở biến riêng:
-            //            string firstIMEI = dr["IMEINO"].ToString();
+            //            cmbCompanyView.Items.Add(dr["CName"].ToString()); // load Company
             //        }
             //    }
             //}
             //catch (Exception ex)
             //{
-            //    MessageBox.Show("Error loading price: " + ex.Message);
+            //    MessageBox.Show("Error loading stock: " + ex.Message);
             //}
-        
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                cmbModelView.DataSource = null;
+                cmbCompanyView.DataSource = null;
+                txtStock.Clear();
+
+                string query = "SELECT CompId, CName FROM tbl_Company";
+                DataTable dt = DbHelper.ExecuteQuery(query);
+
+                if (dt.Rows.Count > 0)
                 {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(
-                        "SELECT Price, Warranty FROM tbl_Mobile WHERE IMEINO=@IMEI", con);
-                    cmd.Parameters.AddWithValue("@IMEI", cboIMEI.Text);
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    if (dr.Read())
-                    {
-                        textBox1.Text = dr["Price"].ToString();
-                        currentWarranty = dr["Warranty"].ToString();
-                    }
+                    cmbCompanyView.DataSource = dt;
+                    cmbCompanyView.DisplayMember = "CName";
+                    cmbCompanyView.ValueMember = "CompId";
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading price/warranty: " + ex.Message);
+                MessageBox.Show("Error loading stock: " + ex.Message);
             }
-
-
-        // Filter DataGridView theo Company/Model
-        FilterStock();
         }
 
 
-        // Hàm filter DataGridView theo Company/Model
-        private void FilterStock()
+        private void cmbCompanyView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbCompanyView.SelectedValue == null) return;
+
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    con.Open();
-                    string sql = @"SELECT m.IMEINO, md.ModelNum, c.CName, m.Status, m.Price
-                           FROM tbl_Mobile m
-                           JOIN tbl_Model md ON m.ModelId = md.ModelId
-                           JOIN tbl_Company c ON md.CompId = c.CompId
-                           WHERE 1=1 ";
+                string query = "SELECT ModelId, ModelNum FROM tbl_Model WHERE CompId=@CompId";
+                SqlParameter[] p = { new SqlParameter("@CompId", cmbCompanyView.SelectedValue.ToString()) };
 
-                    if (!string.IsNullOrEmpty(comboBox2.Text))
-                        sql += " AND c.CName=@CName";
-                    if (!string.IsNullOrEmpty(comboBox1.Text))
-                        sql += " AND md.ModelNum=@ModelNum";
+                DataTable dt = DbHelper.ExecuteQuery(query, p);
 
-                    SqlCommand cmd = new SqlCommand(sql, con);
-                    if (!string.IsNullOrEmpty(comboBox2.Text))
-                        cmd.Parameters.AddWithValue("@CName", comboBox2.Text);
-                    if (!string.IsNullOrEmpty(comboBox1.Text))
-                        cmd.Parameters.AddWithValue("@ModelNum", comboBox1.Text);
-
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                }
+                cmbModelView.DataSource = dt;
+                cmbModelView.DisplayMember = "ModelNum";
+                cmbModelView.ValueMember = "ModelId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error filtering stock: " + ex.Message);
+                MessageBox.Show("Error loading models: " + ex.Message);
             }
+        }
+
+        private void cmbModelView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbModelView.SelectedValue == null) return;
+
+            try
+            {
+                string query = @"SELECT COUNT(*) AS StockAvailable
+                         FROM tbl_Mobile
+                         WHERE ModelId=@ModelId AND Status='Available'";
+                SqlParameter[] p = { new SqlParameter("@ModelId", cmbModelView.SelectedValue.ToString()) };
+
+                DataTable dt = DbHelper.ExecuteQuery(query, p);
+                if (dt.Rows.Count > 0)
+                    txtStock.Text = dt.Rows[0]["StockAvailable"].ToString();
+                else
+                    txtStock.Text = "0";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading stock: " + ex.Message);
+            }
+        }
+
+        // Nút Cancel → reset
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            cmbModelView.DataSource = null;
+            cmbCompanyView.DataSource = null;
+            txtStock.Clear();
+            LoadStock(); // load lại từ đầu
         }
 
         #endregion
 
-
         #region Tab Search
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void Search_Load(object sender, EventArgs e)
+        {
+            dgvSearch.DataSource = null; // Khi load thì DataGridView trống
+        }
+
+        private void btnSearch_Click_1(object sender, EventArgs e)
         {
             string keyword = txtIMEs.Text.Trim();
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                MessageBox.Show("⚠ Vui lòng nhập IMEI Number trước khi tìm kiếm!");
+                return;
+            }
+
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                string query = @"
+            SELECT 
+                c.Cust_Name   AS [Customer Name],
+                c.MobileNumber AS [Mobile Number],
+                c.EmailId      AS [Email],
+                c.Address      AS [Address],
+                co.CName       AS [Company Name],
+                m.ModelNum     AS [Model Number],
+                mb.IMEINO      AS [IMEI Number],
+                s.Price        AS [Price],
+                mb.Warranty    AS [Warranty],
+                s.PurchaseDate AS [Purchase Date]
+            FROM tbl_Sales s
+            INNER JOIN tbl_Customer c ON s.CustId = c.CustId
+            INNER JOIN tbl_Mobile mb ON s.IMEINO = mb.IMEINO
+            INNER JOIN tbl_Model m ON mb.ModelId = m.ModelId
+            INNER JOIN tbl_Company co ON m.CompId = co.CompId
+            WHERE s.IMEINO = @imei
+            ORDER BY s.PurchaseDate DESC";
+
+                SqlParameter[] p = { new SqlParameter("@imei", keyword) };
+                DataTable dt = DbHelper.ExecuteQuery(query, p);
+
+                if (dt.Rows.Count > 0)
                 {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand(
-                        @"SELECT c.CustomerName, c.MobileNumber, c.Email, c.Address
-                          FROM tbl_User c
-                          JOIN tbl_Mobile m ON m.IMEINO = @kw
-                          WHERE m.IMEINO=@kw", con);
-                    cmd.Parameters.AddWithValue("@kw", keyword);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    dataGridView1.DataSource = dt;
+                    dgvSearch.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("❌ Không tìm thấy thông tin với IMEI này!");
+                    dgvSearch.DataSource = null; // clear dữ liệu cũ
                 }
             }
             catch (Exception ex)
@@ -384,8 +309,20 @@ namespace Mobile_app_shoppe.Forms
             }
         }
 
+
+
         #endregion
 
-        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+
+            // Khi Login đóng, form này cũng đóng
+            login.FormClosed += (s, args) => this.Close();
+
+            // Ẩn form hiện tại
+            this.Hide();
+        }
     }
 }

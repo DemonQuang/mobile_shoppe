@@ -1,4 +1,4 @@
-﻿namespace Mobile_app_shoppe
+﻿namespace MobileAppShoppe
 {
     partial class Login
     {

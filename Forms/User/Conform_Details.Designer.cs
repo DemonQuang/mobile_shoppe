@@ -1,4 +1,4 @@
-﻿namespace Mobile_app_shoppe.Forms.User
+﻿namespace MobileAppShoppe.Forms.User
 {
     partial class Conform_Details
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
-            this.lblMobileNo = new System.Windows.Forms.Label();
+            this.lblMobile = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
@@ -50,15 +50,15 @@
             this.lblWarranty = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnOK
             // 
-            this.button1.Location = new System.Drawing.Point(302, 287);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnOK.Location = new System.Drawing.Point(302, 287);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 36;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // label9
             // 
@@ -141,14 +141,14 @@
             this.lblCustomerName.TabIndex = 37;
             this.lblCustomerName.Text = "Customer Name:";
             // 
-            // lblMobileNo
+            // lblMobile
             // 
-            this.lblMobileNo.AutoSize = true;
-            this.lblMobileNo.Location = new System.Drawing.Point(191, 105);
-            this.lblMobileNo.Name = "lblMobileNo";
-            this.lblMobileNo.Size = new System.Drawing.Size(102, 16);
-            this.lblMobileNo.TabIndex = 38;
-            this.lblMobileNo.Text = "Mobile Number:";
+            this.lblMobile.AutoSize = true;
+            this.lblMobile.Location = new System.Drawing.Point(191, 105);
+            this.lblMobile.Name = "lblMobile";
+            this.lblMobile.Size = new System.Drawing.Size(102, 16);
+            this.lblMobile.TabIndex = 38;
+            this.lblMobile.Text = "Mobile Number:";
             // 
             // lblAddress
             // 
@@ -212,7 +212,7 @@
             this.button2.TabIndex = 45;
             this.button2.Text = "CANCEL";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label17
             // 
@@ -246,9 +246,9 @@
             this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.lblMobileNo);
+            this.Controls.Add(this.lblMobile);
             this.Controls.Add(this.lblCustomerName);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -259,6 +259,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Conform_Details";
             this.Text = "Conform_Details";
+            this.Load += new System.EventHandler(this.Conform_Details_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,7 +267,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -276,7 +277,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCustomerName;
-        private System.Windows.Forms.Label lblMobileNo;
+        private System.Windows.Forms.Label lblMobile;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblCompany;

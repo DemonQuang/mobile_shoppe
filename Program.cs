@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Mobile_app_shoppe.DataAccess;
+using MobileAppShoppe.DataAccess;
 
-namespace Mobile_app_shoppe
+namespace MobileAppShoppe
 {
     internal static class Program
     {

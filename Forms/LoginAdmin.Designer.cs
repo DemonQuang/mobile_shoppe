@@ -1,4 +1,4 @@
-﻿namespace Mobile_app_shoppe.Forms
+﻿namespace MobileAppShoppe.Forms
 {
     partial class LoginAdmin
     {

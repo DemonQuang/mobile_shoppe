@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mobile_app_shoppe.Business
+namespace MobileAppShoppe.Business
 {
     internal class UserService
     {

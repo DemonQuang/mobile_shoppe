@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
-namespace Mobile_app_shoppe.DataAccess
+namespace MobileAppShoppe.DataAccess
 {
     public static class DbHelper
     {
@@ -12,6 +13,31 @@ namespace Mobile_app_shoppe.DataAccess
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);
+        }
+
+        public static DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
+        {
+            using (SqlConnection con = GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand(query, con);
+                if (parameters != null) cmd.Parameters.AddRange(parameters);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
+        public static int ExecuteNonQuery(string query, SqlParameter[] parameters = null)
+        {
+            using (SqlConnection con = GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand(query, con);
+                if (parameters != null) cmd.Parameters.AddRange(parameters);
+                con.Open();
+                return cmd.ExecuteNonQuery();
+            }
         }
 
         public static bool TestConnection()

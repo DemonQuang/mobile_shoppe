@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mobile_app_shoppe.Properties
+namespace MobileAppShoppe.Properties
 {
 
 

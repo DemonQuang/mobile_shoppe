@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mobile_app_shoppe.Models
+namespace MobileAppShoppe.Models
 {
     internal class User
     {
